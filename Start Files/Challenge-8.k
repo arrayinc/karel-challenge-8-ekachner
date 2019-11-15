@@ -32,7 +32,7 @@ import "turns";
 
 function pickUpBeeperPile(){
 	while(beepersPresent()){
-		pickBeepers();
+		pickBeeper();
 	}
 }
 
@@ -43,7 +43,9 @@ function distributeBeepers(){
 		putBeeper();
 		move();
 	}
-	leftToRight();
+	while(frontIsClear()){
+		move();
+	}
 }
 
 
@@ -58,10 +60,7 @@ function leftToRight(){
 
 
 
-function rightToLeft(){
-	while(frontIsClear()){
-		move();
-	}
+function nextRow(){
 	if(facingWest()){
 			turnRight();
 		}
@@ -70,6 +69,16 @@ function rightToLeft(){
 		turnRight();
 		streetSweeping();
 	}
+}
+
+
+
+
+function rightToLeft(){
+	while(frontIsClear()){
+		move();
+	}
+	nextRow();
 }
 
 
