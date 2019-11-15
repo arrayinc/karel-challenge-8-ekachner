@@ -43,9 +43,6 @@ function distributeBeepers(){
 		putBeeper();
 		move();
 	}
-	while(frontIsClear()){
-		move();
-	}
 }
 
 
@@ -62,8 +59,8 @@ function leftToRight(){
 
 function nextRow(){
 	if(facingWest()){
-			turnRight();
-		}
+		turnRight();
+	}
 	while(frontIsClear()){
 		move();
 		turnRight();
