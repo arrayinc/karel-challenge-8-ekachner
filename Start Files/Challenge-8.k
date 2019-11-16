@@ -61,10 +61,15 @@ function nextRow(){
 	if(facingWest()){
 		turnRight();
 	}
-	while(frontIsClear()){
+	if(frontIsClear()){
 		move();
 		turnRight();
 		streetSweeping();
+	}else{
+		turnRight();
+		while(frontIsClear()){
+			move();
+		}
 	}
 }
 
